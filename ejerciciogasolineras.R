@@ -127,7 +127,7 @@ library(readxl)
 library(leaflet)
 library(tidyverse)
 
-ds22017327_33c%>%select(rotulo, latitud, longitud_wgs84, precio_gasoleo_a, localidad, direccion) %>%
+ds22017327_33c%>%select(rotulo, latitud, longitud_wgs84, precio_gasoleo_a, localidad, direccion)%>%
   top_n(-20, precio_gasoleo_a)%>%
   leaflet()%>% addTiles()%>%
   addCircleMarkers(lng= ~longitud_wgs84, lat = ~latitud, popup = ~rotulo, label = ~precio_gasoleo_a)
